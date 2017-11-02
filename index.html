@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Project 3!!</title>
+        <style>
+            body{
+                background-color: #282828;
+                color: white;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Conway's Game of Life</h1>
+        <div id = "controls">
+            <button onclick = "start()">Start!</button>
+            <button onclick = "stop()">Stop!</button>
+            <button onclick = "incGen(1)">+1</button>
+            <button onclick = "incGen(23)">+23</button>
+            <button onclick = "reset()">Reset</button>
+            <select id = "pattern">
+                <option value = "0">Pattern 1</option>
+                <option value = "1">Pattern 2</option>
+                <option value = "2">Pattern 3</option>
+            </select>
+            Grid: <input type = "number" id = "gridWidth" max = "50" style = "width:50px">X<input type = "number" id = "gridHeight" max = "50" style = "width:50px">
+
+        </div>
+        <div id = "board"></div>
+    </body>
+</html>
