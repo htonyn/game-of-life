@@ -1,31 +1,84 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Project 3!!</title>
+        <title>Project 3!! FREE PIZZA</title>
         <style>
-            body{
+            body {
+                padding: 0;
+                margin: 0;
                 background-color: #282828;
                 color: white;
                 text-align: center;
+                height: 100%;
             }
+            #controls {
+                position: fixed;
+                left: 0;
+                padding: 3px;
+                background-color: black;
+                height: 100%;
+                width: 200px;
+            }
+            #board {
+                left: 200px;
+                position: fixed;
+                width: calc(100% - 200px);
+                height: 100%;
+            }
+            button {
+                margin: 5px;
+            }
+
+            button, select {
+                float: left;
+                margin: 5px;
+            }
+            #grid-input {
+                float: left;
+            }
+            table, th, tr, td {
+                border: 1px solid white;
+                border-spacing: 0;
+            }
+
         </style>
     </head>
     <body>
-        <h1>Conway's Game of Life</h1>
+        <h1>Conway's Game of Life</h1><hr>
         <div id = "controls">
             <button onclick = "start()">Start!</button>
-            <button onclick = "stop()">Stop!</button>
+            <button onclick = "stop()">Stop!</button><br><br>
             <button onclick = "incGen(1)">+1</button>
             <button onclick = "incGen(23)">+23</button>
-            <button onclick = "reset()">Reset</button>
+            <button onclick = "reset()">Reset</button><br><br>
+            <div id="grid-input">Grid: <input type = "number" id = "gridWidth" max = "50" style = "width:50px">X<input type = "number" id = "gridHeight" max = "50" style = "width:50px"></div><br>
             <select id = "pattern">
                 <option value = "0">Pattern 1</option>
                 <option value = "1">Pattern 2</option>
                 <option value = "2">Pattern 3</option>
-            </select>
-            Grid: <input type = "number" id = "gridWidth" max = "50" style = "width:50px">X<input type = "number" id = "gridHeight" max = "50" style = "width:50px">
+            </select><br>
 
         </div>
         <div id = "board"></div>
     </body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script>
+        function start() {
+            width = $('#gridWidth').val();
+            height = $('#gridHeight').val();
+            console.log("Grid is "+width+" by "+height);
+            // Fight me (passively)
+            grid = "<table>";
+            for (i = 0; i < height; i++) {
+                grid += "<tr>";
+                for (j = 0; j < width; j++) {
+                    grid += "<td></td>";
+                }
+                grid += "</tr>";    
+            }
+            grid += "</table>";
+            $('#board').html(grid);
+            console.log(grid);
+        }
+    </script>
 </html>
