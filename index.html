@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Project 3!! FREE PIZZA</title>
+        <title>Project 3!!</title>
         <style>
             body {
                 padding: 0;
@@ -20,7 +20,7 @@
                 width: 200px;
             }
             #board {
-                left: 200px;
+                left: 210px;
                 position: fixed;
                 width: calc(100% - 200px);
                 height: 100%;
@@ -40,7 +40,10 @@
                 border: 1px solid white;
                 border-spacing: 0;
             }
-
+            td {
+                height: 5px;
+                width: 5px;
+            }
         </style>
     </head>
     <body>
@@ -51,34 +54,75 @@
             <button onclick = "incGen(1)">+1</button>
             <button onclick = "incGen(23)">+23</button>
             <button onclick = "reset()">Reset</button><br><br>
-            <div id="grid-input">Grid: <input type = "number" id = "gridWidth" max = "50" style = "width:50px">X<input type = "number" id = "gridHeight" max = "50" style = "width:50px"></div><br>
+            <div id="grid-input">Grid: <input type="number" id="gridWidth" max="50" style="width:30px" value="50"> x <input type="number" id="gridHeight" max="50" style="width:30px" value="50"></div><br>
             <select id = "pattern">
                 <option value = "0">Pattern 1</option>
                 <option value = "1">Pattern 2</option>
                 <option value = "2">Pattern 3</option>
             </select><br>
-
         </div>
         <div id = "board"></div>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script>
+        var gridSystem;
+        var width;
+        var height;
         function start() {
             width = $('#gridWidth').val();
             height = $('#gridHeight').val();
             console.log("Grid is "+width+" by "+height);
-            // Fight me (passively)
-            grid = "<table>";
+            gridSystem = new Array(height);
+            for (i = 0; i < height; i++) {
+                gridSystem[i] = new Array(width);
+            }
+            for (i = 0; i < height; i++) {
+                for (j = 0; j < width; j++) {
+                    gridSystem[i].push(0);
+                }
+            }
+            drawBoard();
+            console.log(gridSystem);
+        }
+        function drawBoard() {
+            grid = "<table id=\"potato\">";
             for (i = 0; i < height; i++) {
                 grid += "<tr>";
                 for (j = 0; j < width; j++) {
-                    grid += "<td></td>";
+                    if (gridSystem[i][j] == 1) {
+                        grid += "<td style=\"background-color: #3C3C3C\"></td>";    
+                    } else {
+                        grid += "<td></td>";
+                    }
                 }
                 grid += "</tr>";    
             }
             grid += "</table>";
             $('#board').html(grid);
-            console.log(grid);
+            $('td').click(function() {
+                //alert("clicked");
+                var col = $(this).parent().children().index($(this));
+                var row = $(this).closest('tr').rowIndex;
+                console.log("Row: "+row+"; Column: "+col);
+                if (gridSystem[row][col] == 1) {
+                    gridSystem[row][col] = 0;
+                } else {
+                    gridSystem[row][col] = 1;
+                }
+            });
         }
+        function incGen(num) {
+            for (i = 0; i < num; i++) {
+                for (j = 0; j < gridSystem.length; j++) {
+                    for (k = 0; k < gridSystem[i].length; k++) {
+                        // Check surrounding cells
+                    }
+                }
+            }
+        }
+        
+            
+        
+        
     </script>
 </html>
