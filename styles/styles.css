@@ -1,0 +1,106 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: white;
+    color: #3dbfff;
+    text-align: center;
+    height: 100%;
+    font-family: defaultFont;
+}
+hr {
+    border-color: #3dbfff;
+}
+ul {
+    text-decoration: none;
+    list-style-type: none;
+    padding: 0;
+}
+ul li {
+    width: 100%;
+}
+li a {
+    display: block;
+    color: #3dbfff;
+    text-decoration: none;
+    padding: 8px 16px;
+    font-size: 200%;
+}
+li a:hover {
+    background-color: #3dbfff;
+    color: #bebebe;
+}
+
+#controls {
+    position: fixed;
+    left: 0;
+    top: 0;
+    padding: 3px;
+    background-color: #d8d8d8;
+    height: 100%;
+    width: 200px;
+}
+#board {
+    left: 210px;
+    top: 150px;
+    position: fixed;
+    width: calc(100% - 215px);
+    height: 100%;
+    text-align: center;
+}
+#heading {
+    left: 210px;
+    position: fixed;
+    width: calc(100% - 215px);
+    height: 100%;
+    text-align: center;
+}
+button {
+    margin: 5px;
+}
+input {
+    display: inline-block;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    padding: 10px 20px;
+    overflow: hidden;
+    border: 1px solid #b7b7b7;
+    width: 50px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    font: normal 16px/normal Arial, Helvetica, sans-serif;
+    color: rgba(0,142,198,1);
+    -o-text-overflow: clip;
+    text-overflow: clip;
+    background: rgba(252,252,252,1);
+    -webkit-box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+    box-shadow: 2px 2px 2px 0 rgba(0,0,0,0.2) inset;
+    text-shadow: 4px 0 9px rgba(86,170,255,0.9) ;
+    -webkit-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -moz-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    -o-transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+    transition: all 200ms cubic-bezier(0.42, 0, 0.58, 1);
+  }
+
+button, select {
+    float: left;
+    margin: 5px;
+}
+#grid-input {
+    float: left;
+}
+table {
+    margin: 0 auto;
+}
+table, th, tr, td {
+    border: 1px solid #3dbfff;
+    border-spacing: 0;
+}
+td {
+    height: 10px;
+    width: 10px;
+}
+@font-face {
+    font-family: defaultFont;
+    src: url(../src/MyriadPro-Bold.otf);
+}

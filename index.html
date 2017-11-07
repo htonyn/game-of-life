@@ -2,129 +2,33 @@
 <html>
     <head>
         <title>Project 3!!</title>
-        <style>
-            body {
-                padding: 0;
-                margin: 0;
-                background-color: #282828;
-                color: white;
-                text-align: center;
-                height: 100%;
-            }
-            #controls {
-                position: fixed;
-                left: 0;
-                padding: 3px;
-                background-color: black;
-                height: 100%;
-                width: 200px;
-            }
-            #board {
-                left: 210px;
-                position: fixed;
-                width: calc(100% - 200px);
-                height: 100%;
-            }
-            button {
-                margin: 5px;
-            }
-
-            button, select {
-                float: left;
-                margin: 5px;
-            }
-            #grid-input {
-                float: left;
-            }
-            table, th, tr, td {
-                border: 1px solid white;
-                border-spacing: 0;
-            }
-            td {
-                height: 5px;
-                width: 5px;
-            }
-        </style>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" type="text/css" href="styles/styles.css"/>
     </head>
     <body>
-        <h1>Conway's Game of Life</h1><hr>
-        <div id = "controls">
-            <button onclick = "start()">Start!</button>
-            <button onclick = "stop()">Stop!</button><br><br>
-            <button onclick = "incGen(1)">+1</button>
-            <button onclick = "incGen(23)">+23</button>
-            <button onclick = "reset()">Reset</button><br><br>
-            <div id="grid-input">Grid: <input type="number" id="gridWidth" max="50" style="width:30px" value="50"> x <input type="number" id="gridHeight" max="50" style="width:30px" value="50"></div><br>
-            <select id = "pattern">
-                <option value = "0">Pattern 1</option>
-                <option value = "1">Pattern 2</option>
-                <option value = "2">Pattern 3</option>
-            </select><br>
+        <div id="heading">
+            <h1>Conway's Game of Life</h1><hr>
+        </div>
+        <div id="controls">
+            <ul>
+                <li><a href="#" onclick="start()">Start</a></li>
+                <li><a href="#" onclick="stop()">Stop</a></li>
+                <li><a href="#" onclick="incGen(1)">+1</a></li>
+                <li><a href="#" onclick="incGen(23)">+23</a></li>
+                <li><a href="#" onclick="reset()">Reset</a></li>
+                <li><input type="number" id="gridWidth" max="50" placeholder="width" value="50"/></li>
+                <li><input type="number" id="gridHeight" max="50" placeholder="height" value="50"/></li>
+                <li><a href="#" onclick="start()">Pattern</a></li>
+                <li><select id = "pattern">
+                        <option value = "0">Pattern 1</option>
+                        <option value = "1">Pattern 2</option>
+                        <option value = "2">Pattern 3</option>
+                    </select>
+                </li>
+            </ul>
         </div>
         <div id = "board"></div>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script>
-        var gridSystem;
-        var width;
-        var height;
-        function start() {
-            width = $('#gridWidth').val();
-            height = $('#gridHeight').val();
-            console.log("Grid is "+width+" by "+height);
-            gridSystem = new Array(height);
-            for (i = 0; i < height; i++) {
-                gridSystem[i] = new Array(width);
-            }
-            for (i = 0; i < height; i++) {
-                for (j = 0; j < width; j++) {
-                    gridSystem[i].push(0);
-                }
-            }
-            drawBoard();
-            console.log(gridSystem);
-        }
-        function drawBoard() {
-            grid = "<table id=\"potato\">";
-            for (i = 0; i < height; i++) {
-                grid += "<tr>";
-                for (j = 0; j < width; j++) {
-                    if (gridSystem[i][j] == 1) {
-                        grid += "<td style=\"background-color: white\"></td>";    
-                    } else {
-                        grid += "<td></td>";
-                    }
-                }
-                grid += "</tr>";    
-            }
-            grid += "</table>";
-            $('#board').html(grid);
-            $('td').click(function() {
-                //alert("clicked");
-                var col = $(this).parent().children().index($(this));
-                var row = $(this).closest('tr').index();
-                console.log("Row: "+row+"; Column: "+col);
-                if (gridSystem[row][col] == 1) {
-                    gridSystem[row][col] = 0;
-                } else {
-                    gridSystem[row][col] = 1;
-                }
-                drawBoard();
-            });
-            
-        }
-        function incGen(num) {
-            for (i = 0; i < num; i++) {
-                for (j = 0; j < gridSystem.length; j++) {
-                    for (k = 0; k < gridSystem[i].length; k++) {
-                        // Check surrounding cells
-                    }
-                }
-            }
-        }
-        
-            
-        
-        
-    </script>
+    <script src="scripts/scripts.js"></script>
 </html>
