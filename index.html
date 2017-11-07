@@ -6,28 +6,24 @@
         <link rel="stylesheet" type="text/css" href="styles/styles.css"/>
     </head>
     <body>
-        <div id="heading">
-            <h1>Conway's Game of Life</h1><hr>
+        <div id="right">
+            <div id="heading">
+                <h1>Conway's Game of Life</h1><hr>
+            </div>
+            <div id="controls">
+                <ul>
+                    <li><a href="#" onclick="start()">Start</a></li>
+                    <li><a href="#" onclick="stop()">Stop</a></li>
+                    <li><a href="#" onclick="incGen(1)">+1</a></li>
+                    <li><a href="#" onclick="incGen(23)">+23</a></li>
+                    <li><a href="#" onclick="reset()">Reset</a></li>
+                    <li><input type="number" id="gridWidth" max="50" placeholder="width" value="50"/></li>
+                    <li><input type="number" id="gridHeight" max="50" placeholder="height" value="50"/></li>
+                    <li><a href="#" onclick="start()">Pattern</a></li>
+                </ul>
+            </div>
+            <div id="board"></div>
         </div>
-        <div id="controls">
-            <ul>
-                <li><a href="#" onclick="start()">Start</a></li>
-                <li><a href="#" onclick="stop()">Stop</a></li>
-                <li><a href="#" onclick="incGen(1)">+1</a></li>
-                <li><a href="#" onclick="incGen(23)">+23</a></li>
-                <li><a href="#" onclick="reset()">Reset</a></li>
-                <li><input type="number" id="gridWidth" max="50" placeholder="width" value="50"/></li>
-                <li><input type="number" id="gridHeight" max="50" placeholder="height" value="50"/></li>
-                <li><a href="#" onclick="start()">Pattern</a></li>
-                <li><select id = "pattern">
-                        <option value = "0">Pattern 1</option>
-                        <option value = "1">Pattern 2</option>
-                        <option value = "2">Pattern 3</option>
-                    </select>
-                </li>
-            </ul>
-        </div>
-        <div id = "board"></div>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
     <script src="scripts/scripts.js"></script>

@@ -14,6 +14,7 @@ function start() {
             gridSystem[i].push(0);
         }
     }
+    $('#heading').hide('slow');
     drawBoard();
     console.log(gridSystem);
 }
@@ -49,9 +50,45 @@ function drawBoard() {
 function incGen(num) {
     for (i = 0; i < num; i++) {
         for (j = 0; j < gridSystem.length; j++) {
-            for (k = 0; k < gridSystem[i].length; k++) {
-                // Check surrounding cells
+            for (k = 0; k < gridSystem[j].length; k++) {
+                neighbor = 0;// Check surrounding cells
+                if (j > 0) {
+                    if (gridSystem[j-1][k] == 1) {
+                        neighbor++;
+                    }
+                }
+                if (j != (height-1)) {
+                    if (gridSystem[j+1][k] == 1) {
+                        neighbor++;
+                    }
+                }
+                if (k > 0) {
+                    if (gridSystem[j][k-1] == 1) {
+                        neighbor++;
+                    }
+                }
+                if (k != (width-1)) {
+                    if (gridSystem[j][k+1] == 1) {
+                        neighbor++;
+                    }
+                }
+                console.log(neighbor);
+                if (neighbor < 2 || neighbor > 3 || (gridSystem[j][k] == 1 && neighbor > 3)) {
+                    gridSystem[j][k] = 0;
+                } else if (gridSystem[j][k] == 1 && (neighbor == 2 || neighbor == 3)) {
+                    gridSystem[j][k] = 1;
+                }
             }
         }
+        drawBoard();
     }
+}
+
+function reset() {
+    for (j = 0; j < gridSystem.length; j++) {
+        for (k = 0; k < gridSystem[j].length; k++) {
+            gridSystem[j][k] = 0;
+        }
+    }
+    drawBoard();
 }
