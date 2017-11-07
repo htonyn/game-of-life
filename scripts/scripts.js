@@ -54,43 +54,58 @@ function drawBoard() {
 }
 function incGen(num) {
     console.log(num);
+    // Iterate per each generation
     for (i = 0; i < num; i++) {
+        // Per row in the grid
         for (j = 0; j < gridSystem.length; j++) {
+            // Per cell in the row
             for (k = 0; k < gridSystem[j].length; k++) {
-                neighbor = 0;// Check surrounding cells
+                neighbor = 0; // Reset neighbor count
+                // Checks if the cell is NOT at the top row.
                 if (j > 0) {
+                    // Top Left
                     if (k > 0) {
                         if (gridSystem[j-1][k-1] == 1) {
                             neighbor++;
                         }
-                    } else if (k != width) {
+                    }
+                    // Top Right
+                    if (k != (width-1)) {
                         if (gridSystem[j-1][k+1] == 1) {
                             neighbor++;
                         }
                     }
+                    // Top
                     if (gridSystem[j-1][k] == 1) {
                         neighbor++;
                     }
                 }
+                // Checks if the cell is NOT at the bottom row
                 if (j != (height-1)) {
+                    // Bottom Left
                     if (k > 0) {
                         if (gridSystem[j+1][k-1] == 1) {
                             neighbor++;
                         }
-                    } else if (k != width) {
+                    }
+                    // Bottom Right
+                    if (k != (width-1)) {
                         if (gridSystem[j+1][k+1] == 1) {
                             neighbor++;
                         }
                     }
+                    // Bottom
                     if (gridSystem[j+1][k] == 1) {
                         neighbor++;
                     }
                 }
+                // Left
                 if (k > 0) {
                     if (gridSystem[j][k-1] == 1) {
                         neighbor++;
                     }
                 }
+                // Right
                 if (k != (width-1)) {
                     if (gridSystem[j][k+1] == 1) {
                         neighbor++;
@@ -102,10 +117,14 @@ function incGen(num) {
         for (j = 0; j < gridSystem.length; j++) {
             for (k = 0; k < gridSystem[j].length; k++) {
                 neighbor = neighborGrid[j][k];
-                if (neighbor < 2 || neighbor > 3 || (gridSystem[j][k] == 1 && neighbor > 3)) {
-                    gridSystem[j][k] = 0;
-                } else if (gridSystem[j][k] == 1 && (neighbor == 2 || neighbor == 3)) {
-                    gridSystem[j][k] = 1;
+                if (gridSystem[j][k] == 1) {
+                    if (neighbor < 2 || neighbor > 3) {
+                        gridSystem[j][k] = 0;
+                    }
+                } else {
+                    if (neighbor == 3) {
+                        gridSystem[j][k] = 1;
+                    }
                 }
             }
         }
