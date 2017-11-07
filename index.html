@@ -90,7 +90,7 @@
                 grid += "<tr>";
                 for (j = 0; j < width; j++) {
                     if (gridSystem[i][j] == 1) {
-                        grid += "<td style=\"background-color: #3C3C3C\"></td>";    
+                        grid += "<td style=\"background-color: white\"></td>";    
                     } else {
                         grid += "<td></td>";
                     }
@@ -102,14 +102,16 @@
             $('td').click(function() {
                 //alert("clicked");
                 var col = $(this).parent().children().index($(this));
-                var row = $(this).closest('tr').rowIndex;
+                var row = $(this).closest('tr').index();
                 console.log("Row: "+row+"; Column: "+col);
                 if (gridSystem[row][col] == 1) {
                     gridSystem[row][col] = 0;
                 } else {
                     gridSystem[row][col] = 1;
                 }
+                drawBoard();
             });
+            
         }
         function incGen(num) {
             for (i = 0; i < num; i++) {
