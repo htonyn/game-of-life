@@ -21,7 +21,7 @@ ul li {
 }
 ul li ul {
     display: none;
-    background-color: #a5a5a5;
+    background-color: rgb(29, 29, 29);
 }
 ul li ul a {
     font-size: 100%;
@@ -38,7 +38,8 @@ li a {
 }
 li a:hover {
     background-color: #3dbfff;
-    color: #bebebe;
+    color: rgb(29, 29, 29);
+    /* background-color: green; */
 }
 #controls {
     position: fixed;
@@ -105,7 +106,8 @@ table {
     margin: 0 auto;
 }
 table, th, tr, td {
-    border: 1px solid #3dbfff;
+    border: 1px solid rgba(86,170,255,0.5);
+    /* #3dc5ff; */
     border-spacing: 0;
 }
 td {

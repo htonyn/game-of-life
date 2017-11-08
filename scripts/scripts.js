@@ -1,5 +1,6 @@
 var gridSystem;
 var neighborGrid;
+var visitedSet;
 var width;
 var height;
 var active = 0;
@@ -13,14 +14,17 @@ function start() {
     console.log("Grid is "+width+" by "+height);
     gridSystem = new Array(height);
     neighborGrid = new Array(height);
+    visitedSet = new Array(height);
     for (i = 0; i < height; i++) {
         gridSystem[i] = new Array(width);
         neighborGrid[i] = new Array(width);
+        visitedSet[i] = new Array(width);
     }
     for (i = 0; i < height; i++) {
         for (j = 0; j < width; j++) {
             gridSystem[i].push(0);
             neighborGrid[i].push(0);
+            visitedSet[i].push(0);
         }
     }
     $('#heading').hide('slow');
@@ -28,7 +32,6 @@ function start() {
     $('#widthInput').hide('slow');
     $('#heightInput').hide('slow');
     drawBoard();
-    console.log(gridSystem);
 }
 function drawBoard() {
     console.log("Drawing board...");
@@ -37,7 +40,10 @@ function drawBoard() {
         grid += "<tr>";
         for (j = 0; j < width; j++) {
             if (gridSystem[i][j] == 1) {
-                grid += "<td style=\"background-color: #3dbfff\"></td>";    
+                grid += "<td style=\"background-color: #3dbfff\"></td>";
+                visitedSet[i][j] = 1;
+            } else if (visitedSet[i][j] == 1) {
+                grid += "<td style=\"background-color: greenyellow\"></td>";
             } else {
                 grid += "<td></td>";
             }
@@ -149,8 +155,7 @@ function drawBoard() {
             gridSystem[row+13][col+4] = 1;
             gridSystem[row+13][col+10] = 1;
             gridSystem[row+14][col+4] = 1;
-            gridSystem[row+14][col+10] = 1;           
-            
+            gridSystem[row+14][col+10] = 1;
         } else if (patternSelect == 7) {
             gridSystem[row][col] = 1;
             gridSystem[row][col+3] = 1;
@@ -205,7 +210,6 @@ function drawBoard() {
                 gridSystem[row][col] = 1;
             }
         }
-        
         drawBoard();
     });
     
@@ -291,16 +295,20 @@ function incGen(num) {
     }
     drawBoard();
 }
-
 function reset() {
+    generation = 0;
+    $('#genCounter').html('Gen: '+generation);
+    active = 0;
+    $('#realtime').html('Run');
+    clearInterval(autoRun);
     for (j = 0; j < gridSystem.length; j++) {
         for (k = 0; k < gridSystem[j].length; k++) {
             gridSystem[j][k] = 0;
+            visitedSet[j][k] = 0;
         }
     }
     drawBoard();
 }
-
 function realTime() {
     if (active) {
         active = 0;
