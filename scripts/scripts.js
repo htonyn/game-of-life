@@ -5,7 +5,9 @@ var height;
 var active = 0;
 var autoRun;
 var patternSelect = 0;
+var generation;
 function start() {
+    generation = 0;
     width = $('#gridWidth').val();
     height = $('#gridHeight').val();
     console.log("Grid is "+width+" by "+height);
@@ -210,6 +212,8 @@ function drawBoard() {
 }
 function incGen(num) {
     console.log(num);
+    generation += num;
+    $('#genCounter').html('Gen: '+generation);
     // Iterate per each generation
     for (i = 0; i < num; i++) {
         // Per row in the grid
@@ -307,6 +311,8 @@ function realTime() {
         $('#realtime').html('Stop');
         autoRun = setInterval(function() {
             console.log("Iterating");
+            generation += 1;
+            $('#genCounter').html('Gen: '+generation);
             for (j = 0; j < gridSystem.length; j++) {
                 // Per cell in the row
                 for (k = 0; k < gridSystem[j].length; k++) {
