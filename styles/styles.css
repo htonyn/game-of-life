@@ -18,6 +18,16 @@ ul {
 ul li {
     width: 100%;
 }
+ul li ul {
+    display: none;
+    background-color: #a5a5a5;
+}
+ul li ul a {
+    font-size: 100%;
+}
+ul li:click ul {
+    display: block;
+}
 li a {
     display: block;
     color: #3dbfff;
