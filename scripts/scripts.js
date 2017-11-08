@@ -23,6 +23,8 @@ function start() {
     }
     $('#heading').hide('slow');
     $('#startButton').hide('slow');
+    $('#widthInput').hide('slow');
+    $('#heightInput').hide('slow');
     drawBoard();
     console.log(gridSystem);
 }

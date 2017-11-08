@@ -12,13 +12,13 @@
             </div>
             <div id="controls">
                 <ul>
-                    <li><a id="startButton" href="#" onclick="start()">Start</a></li>
+                    <li id="startButton"><a href="#" onclick="start()">Start</a></li>
+                    <li id="widthInput">Width: <input type="number" id="gridWidth" max="50" placeholder="width" value="50"/></li>
+                    <li id="heightInput">Height: <input type="number" id="gridHeight" max="50" placeholder="height" value="50"/></li>
                     <li><a id="realtime" href="#" onclick="realTime()">Run</a></li>
                     <li><a href="#" onclick="incGen(1)">+1</a></li>
                     <li><a href="#" onclick="incGen(23)">+23</a></li>
                     <li><a href="#" onclick="reset()">Reset</a></li>
-                    <li>Width: <input type="number" id="gridWidth" max="50" placeholder="width" value="50"/></li>
-                    <li>Height: <input type="number" id="gridHeight" max="50" placeholder="height" value="50"/></li>
                     <li><a href="#" onclick="toggleSection('pattern-list')">Pattern</a>
                         <ul id="pattern-list">
                             <li><a href="#" onclick="patternSelection('point')">Point</a></li>
