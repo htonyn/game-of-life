@@ -203,6 +203,64 @@ function drawBoard() {
             gridSystem[row+1][col+24] = 1;
             gridSystem[row+5][col+24] = 1;
             gridSystem[row+6][col+24] = 1;           
+        } else if (patternSelect == 9) {
+            gridSystem[row][col] = 1;
+            gridSystem[row][col+1] = 1;
+            gridSystem[row+1][col] = 1;
+            gridSystem[row+1][col+2] = 1;
+            gridSystem[row+2][col+1] = 1;
+        } else if (patternSelect == 10) {
+            gridSystem[row][col+5] = 1;
+            gridSystem[row+1][col+6] = 1;
+            gridSystem[row+2][col] = 1;
+            gridSystem[row+2][col+6] = 1;
+            gridSystem[row+3][col+1] = 1;
+            gridSystem[row+3][col+2] = 1;
+            gridSystem[row+3][col+3] = 1;
+            gridSystem[row+3][col+4] = 1;
+            gridSystem[row+3][col+5] = 1;
+            gridSystem[row+3][col+6] = 1;
+            gridSystem[row+26][col+5] = 1;
+            gridSystem[row+25][col+6] = 1;
+            gridSystem[row+24][col] = 1;
+            gridSystem[row+24][col+6] = 1;
+            gridSystem[row+23][col+1] = 1;
+            gridSystem[row+23][col+2] = 1;
+            gridSystem[row+23][col+3] = 1;
+            gridSystem[row+23][col+4] = 1;
+            gridSystem[row+23][col+5] = 1;
+            gridSystem[row+23][col+6] = 1;
+            gridSystem[row+6][col] = 1;
+            gridSystem[row+6][col+1] = 1;
+            gridSystem[row+6][col+2] = 1;
+            gridSystem[row+7][col] = 1;
+            gridSystem[row+7][col+1] = 1;
+            gridSystem[row+20][col] = 1;
+            gridSystem[row+20][col+1] = 1;
+            gridSystem[row+20][col+2] = 1;
+            gridSystem[row+19][col] = 1;
+            gridSystem[row+19][col+1] = 1;
+            gridSystem[row+8][col+4] = 1;
+            gridSystem[row+9][col+4] = 1;
+            gridSystem[row+9][col+5] = 1;
+            gridSystem[row+10][col+5] = 1;
+            gridSystem[row+10][col+6] = 1;
+            gridSystem[row+11][col+4] = 1;
+            gridSystem[row+11][col+5] = 1;
+            gridSystem[row+18][col+4] = 1;
+            gridSystem[row+17][col+4] = 1;
+            gridSystem[row+17][col+5] = 1;
+            gridSystem[row+16][col+5] = 1;
+            gridSystem[row+16][col+6] = 1;
+            gridSystem[row+15][col+4] = 1;
+            gridSystem[row+15][col+5] = 1;
+        } else if (patternSelect == 11) {
+            gridSystem[row][col+1] = 1;
+            gridSystem[row+1][col] = 1;
+            gridSystem[row+2][col] = 1;
+            gridSystem[row+1][col+2] = 1;
+            gridSystem[row+2][col+2] = 1;
+            gridSystem[row+3][col+1] = 1;
         } else {
             if (gridSystem[row][col] == 1) {
                 gridSystem[row][col] = 0;
@@ -396,36 +454,57 @@ function realTime() {
         }, 100);
     }
 }
-
 function patternSelection(pattern) {
     switch (pattern) {
         case 'point':
             patternSelect = 0;
+            $('#brush').html('<u>Brush</u><br> Point');
             break;
         case 'block':
             patternSelect = 1;
+            $('#brush').html('<u>Brush</u><br> Block');
             break;
         case 'glider':
             patternSelect = 2;
+            $('#brush').html('<u>Brush</u><br> Glider');
             break;
         case 'blinker':
             patternSelect = 3;
+            $('#brush').html('<u>Brush</u><br> Blinker');
             break;
         case 'beacon':
+            $('#brush').html('<u>Brush</u><br> Beacon');
             patternSelect = 4;
             break;
         case 'toad':
+            $('#brush').html('<u>Brush</u><br> Toad');
             patternSelect = 5;
             break;
         case 'pulsar':
+            $('#brush').html('<u>Brush</u><br> Pulsar');
             patternSelect = 6;
             break;
         case 'spaceship':
+            $('#brush').html('<u>Brush</u><br> Spaceship');
             patternSelect = 7;
             break;
-        default:
+        case 'gosper':
+            $('#brush').html('<u>Brush</u><br> Gosper Gun');
             patternSelect = 8;
             break;
+        case 'boat':
+            $('#brush').html('<u>Brush</u><br> Boat');
+            patternSelect = 9;
+            break;
+        case 'puffer':
+            $('#brush').html('<u>Brush</u><br> Puffer');
+            patternSelect = 10;
+            break;
+        default:
+            $('#brush').html('<u>Brush</u><br> Beehive');
+            patternSelect = 11;
+            break;
+            
     }
 }
 

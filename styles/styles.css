@@ -113,6 +113,19 @@ td {
     height: 10px;
     width: 10px;
 }
+
+#legend {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    height: 15%;
+    width: 5%;
+    border: 1px solid rgba(86,170,255,0.5);
+    border-radius: 5px;
+    padding: 1px;
+    background-color: rgb(29, 29, 29);
+}
+
 @font-face {
     font-family: defaultFont;
     src: url(../src/MyriadPro-Bold.otf);
