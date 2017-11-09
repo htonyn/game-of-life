@@ -29,13 +29,25 @@
                             <li><a href="#" onclick="patternSelection('toad')">Toad</a></li>
                             <li><a href="#" onclick="patternSelection('pulsar')">Pulsar</a></li>
                             <li><a href="#" onclick="patternSelection('spaceship')">Spaceship</a></li>
-                            <li><a href="#" onclick="patternSelection('gosper')">Gosper</a></li>
+                            <li><a href="#" onclick="patternSelection('gosper')">Gosper Gun</a></li>
+                            <li><a href="#" onclick="patternSelection('boat')">Boat</a></li>
+                            <li><a href="#" onclick="patternSelection('puffer')">Puffer</a></li>
+                            <li><a href="#" onclick="patternSelection('beehive')">Beehive</a></li>
                         </ul>
                     </li>
                     <li id="genCounter" style="font-size: 200%; position: fixed; bottom: 0;">Gen: 0</li>
+                    <li id="brush" style="font-size: 200%; color: rgb(29, 29, 29); float: bottom"><u>Brush</u><br> Point</li>
                 </ul>
             </div>
             <div id="board"></div>
+            <div id="legend">
+                <h3><u>Legend</u></h3>
+                <ul>
+                    <li style="color: white">Untouched</li>
+                    <li style="color: #3dbfff">Alive</li>
+                    <li style="color: greenyellow">Visited</li>
+                </ul>
+            </div>
         </div>
     </body>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
